@@ -1,4 +1,4 @@
-pipelune{
+pipeline{
     agent any
 
     triggers {
