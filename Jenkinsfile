@@ -21,7 +21,7 @@ pipeline{
 
                 git url: 'https://github.com/laddersky/jenkins_test.git',
                     branch: 'master',
-                    credentialsID: 'laddersky'
+                    credentialsId: 'laddersky'
 
             }
 
