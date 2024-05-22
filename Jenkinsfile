@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'clonning Repository'
 
-                git url: 'https://github.com/laddersky/jenkins_test.git',
+                git url: 'https://github.com/laddersky/jenkins_test',
                     branch: 'main',
                     credentialsId: 'laddersky'
 
