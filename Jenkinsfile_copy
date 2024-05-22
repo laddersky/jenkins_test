@@ -41,10 +41,10 @@ pipeline {
 
         }
 
-        stage('Deploy Fronted'){
+        stage('Deploy Fronted') {
             steps {
                 echo 'Depolying Frontend'
-                dir ('./website'){
+                dir ('./website') {
                     sh '''
                     aws s3 sync ./ s3://jenkinstestforbyeonghunkim 
                     '''
@@ -72,7 +72,7 @@ pipeline {
 
         
 
-        stage('Lint Backend'){
+        stage('Lint Backend') {
             agent {
                 docker {
                     image 'node:latest'
@@ -80,7 +80,7 @@ pipeline {
             }
 
             steps {
-                dir ('./server'){
+                dir ('./server') {
                     sh '''
                     npm install&&
                     npm run lint
@@ -99,7 +99,7 @@ pipeline {
             steps {
                 echo 'Test Backend'
 
-                dir ('./server'){
+                dir ('./server') {
                     sh '''
                     npm install
                     npm run test
@@ -108,31 +108,31 @@ pipeline {
             }
         }
 
-        stage('Build Backend'){
+        stage('Build Backend') {
             
             agent any
             steps {
                 echo 'Build Backend'
 
-                dir ('./server'){
+                dir ('./server') {
                     sh """
                     docker build . -t server --build-arg env=${PROD}
                     """
                 }
             }
             post {
-                failure{
+                failure {
                     error 'This pipeline stops here...'
                 }
             }
         }
-        stage('Deploy Backend'){
+        stage('Deploy Backend') {
             agent any
 
             steps {
                 echo 'Build Backend'
             
-                dir ('./server'){
+                dir ('./server') {
                     sh '''
                     docker run -p 80:80 -d server
                     '''
