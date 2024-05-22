@@ -50,25 +50,27 @@ pipeline{
                     '''
                 }
             }
+
+            post {
+                success {
+                    echo 'Succenssfully Cloned Repository'
+
+                    mail to: 'inpmecca@gmail.com',
+                        subject: "Success Pipelinee",
+                        body: "Successfully deployed frontend"
+                }
+
+                failure {
+                    echo 'I failed'
+
+                    mail to: 'inpmecca@gmail.com',
+                        subject: "Failed Pipelinee",
+                        body: "Something is wrong with depoly frontend"
+                }
+            }
         }
 
-        post {
-            success {
-                echo 'Succenssfully Cloned Repository'
-
-                mail to: 'inpmecca@gmail.com',
-                     subject: "Success Pipelinee",
-                     body: "Successfully deployed frontend"
-            }
-
-            failure {
-                echo 'I failed'
-
-                mail to: 'inpmecca@gmail.com',
-                     subject: "Failed Pipelinee",
-                     body: "Something is wrong with depoly frontend"
-            }
-        }
+        
 
         stage('Lint Backend'){
             agent {
