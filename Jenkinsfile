@@ -129,11 +129,12 @@ pipeline{
 
             steps {
                 echo 'Build Backend'
-            }
-            dir ('./server'){
-                sh '''
-                docker run -p 80:80 -d server
-                '''
+            
+                dir ('./server'){
+                    sh '''
+                    docker run -p 80:80 -d server
+                    '''
+                }
             }
             post {
                 success {
