@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyTest-20240527165243" tests="3" file=".py" time="0.002" timestamp="2024-05-27T16:52:43" failures="1" errors="0" skipped="0">
+	<testcase classname="MyTest" name="test_example1" time="0.001" timestamp="2024-05-27T16:52:43" file="sort.py" line="5"/>
+	<testcase classname="MyTest" name="test_example3" time="0.000" timestamp="2024-05-27T16:52:43" file="sort.py" line="11"/>
+	<testcase classname="MyTest" name="test_example2" time="0.001" timestamp="2024-05-27T16:52:43" file="sort.py" line="8">
+		<failure type="AssertionError" message="2 != 1"><![CDATA[Traceback (most recent call last):
+  File "c:\Users\by7978.kim\Desktop\jenkins\sort.py", line 9, in test_example2
+    self.assertEqual(2, 1)
+AssertionError: 2 != 1
+]]></failure>
+	</testcase>
+</testsuite>
