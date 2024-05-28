@@ -1,1 +1,1 @@
-python sort.py
+python -m xmlrunner discover -s sort.py -o test-reports
